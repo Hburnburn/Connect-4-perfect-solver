@@ -58,3 +58,5 @@ The solver's methods refer to the following research:
 - Böck, M. (2025). *Connect4 7 x 6 Strong Solution*. [Zenodo](https://doi.org/10.5281/zenodo.14582823).
 
 The application and tests in this repository are licensed under the [MIT License](LICENSE). The vendored solver code retains its separate upstream license.
+
+Copilot was used for minor debugging and working with mostly .bin files due to my lack of binary.
