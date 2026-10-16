@@ -1,12 +1,12 @@
 # Connect Four Bot
 
-A desktop Connect Four game with a solver-backed bot. The app is written in Python with Tkinter, and its native search probes are adapted from Markus Böck's Connect4 Strong Solver.
+A "perfect" play Connect Four game with a solver-backed bot made in part for my IB math IA. The app is written in Python, and its native search probes are adapted from Markus Böck's Connect4 Strong Solver.
 
 ## Features
 
 - Choose to play as Player 1 or Player 2.
 - The bot takes an immediate win when one is available.
-- When the bot plays as Player 2, it checks candidate moves with a four-ply tactical search and avoids moves that let Player 1 force a win within that search when a safer alternative exists.
+- When the bot plays as Player 2, it checks candidate moves with a four-ply search and avoids moves that let Player 1 force a win within that search when a safer alternative exists. (4 just for speed and reducing occasional crashes, possible marginal improvement with increacing the ply)
 - The exact 7 x 6 win/draw/loss (WDL) table selects moves that preserve the best available outcome. A separate distance search ranks eligible winning or losing lines, with a 42-ply and 120-second limit.
 
 The tactical check is limited to four plies; it is not a proof that every move losing later has been avoided. Results from the exact WDL solver depend on using the matching, complete 7 x 6 solution tables. In standard Connect Four, Player 1 can force a win with perfect play, so Player 2 cannot guarantee a draw against perfect play.
@@ -29,7 +29,7 @@ The probes are built in `vendor/Connect4-Strong-Solver/src/connect4/build/`, whi
 
 ## Install the solution tables
 
-Download and extract the 7 x 6 solution dataset from [Zenodo](https://doi.org/10.5281/zenodo.14582823). The dataset is very large and is not included in this repository.
+Download and extract the 7 x 6 solution dataset from [Zenodo](https://doi.org/10.5281/zenodo.14582823). The dataset is very large and is not included in this repository, ~89GB uncompressed.
 
 By default, the app looks for the dataset in `~/Desktop/cod/Connect_4_7x6` if that directory exists; otherwise, place it in the project's `data/` directory. The directory must contain the BDD table files and `openingbook_w7_h6_d8.csv`. Set `CONNECT4_TABLE_DIR` to use another directory. Set `CONNECT4_SOLVER_DIR` if the compiled probes are elsewhere.
 
